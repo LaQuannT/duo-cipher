@@ -1,12 +1,17 @@
 {
   "name": "duo-cipher",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple interactive command-line interface tool for creating a cipher.",
   "main": "index.js",
   "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LaQuannT/duo-cipher"
   },
+  "scripts": {
+    "start": "node ."
+  },
+  "bin": "./index.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
