@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { select, input } from '@inquirer/prompts';
+import cipher from './cipher.js';
 
 let cipherMethod, key1, key2, message;
 
@@ -87,7 +88,18 @@ function validateMessage(text) {
     console.log('Message must be between 1-70 characters');
     process.exit(1);
   }
-  return text;
+  return text.toLowerCase().trim();
+}
+
+function results() {
+  let msg;
+  cipherMethod === 'encrypt'
+    ? (msg = cipher.encrypt({ key1, key2, message }))
+    : (msg = cipher.decrypt({ key1, key2, message }));
+
+  console.log(`
+    cipher text: ${msg}
+  `);
 }
 
 info();
@@ -95,3 +107,4 @@ await getMethod();
 await getFirstKey();
 await getSecondKey();
 await getMessage();
+results();
